@@ -11,12 +11,6 @@
 
 }
 
-@media screen and (max-width: 1024px) {
-    .hero .hero-content {
-        padding-top: 50%;
-    }
-}
-
 /* Responsive nav kicks in */
 @media screen and (max-width: 991px) {
     header {
@@ -25,7 +19,7 @@
     }
 
     .hero .hero-content {
-        padding-top: 50%;
+        padding-top: 30%;
     }
 
     .header-nav {
@@ -40,6 +34,13 @@
         opacity: 0;
         -webkit-transition: opacity 0.5s, visibility 0s 0.5s;
         transition: opacity 0.5s, visibility 0s 0.5s;
+    }
+    .header-nav.open a {
+        color: #FFFFFF;
+    }
+
+    .header-nav.open .btn-header {
+        border-color: #FFFFFF;
     }
 
     ul.member-actions {
