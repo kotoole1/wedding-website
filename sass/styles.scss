@@ -53,6 +53,9 @@ ul, ol {
 ul li {
   list-style: none;
 }
+// section {
+
+// }
 section .header {
   padding-bottom: 30px;
 }
@@ -247,17 +250,109 @@ Navigation
   transition: all 300ms ease-in-out;
 }
 
+
+/* ==========================================================================
+Scrim
+========================================================================== */
+// Based on https://github.com/larsenwork/postcss-easing-gradients by Andreas Larsen.
+
+$scrimStops: 0% 0%, 26.2% 19%, 45.9% 34%, 61.8% 47%, 72.2% 56.5%, 80.6% 65%, 87.4% 73%, 92.5% 80.2%, 95.8% 86.1%, 97.9% 91%, 99.2% 95.2%, 99.8% 98.2%, 100% 100%;
+
+@function getColorStop($colorTo, $colorFrom, $weight, $stop) {
+  @return mix($colorFrom, $colorTo, $weight) $stop;
+}
+
+@function getColorStops($colorTo, $colorFrom) {
+  $stops: ();
+  @each $scrimStop in $scrimStops {
+    $stops: append($stops, getColorStop($colorTo, $colorFrom, nth($scrimStop, 1), nth($scrimStop, 2)), comma)
+  }
+  @return $stops;
+}
+
+@function scrim-linear-gradient($args...) {
+  @if (length($args) == 2) {
+    @return linear-gradient(#{getColorStops(nth($args, 1), nth($args, 2))});
+  }
+  @return linear-gradient(#{nth($args, 1)}, #{getColorStops(nth($args, 2), nth($args, 3))});
+}
+
+.scrim {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  &.tall {
+    height: 100px;
+  }
+  &.top {
+    top: 0;
+    background-image: scrim-linear-gradient(white, transparent);
+  }
+  &.bottom {
+    bottom: 0;
+    background-image: scrim-linear-gradient(to top, white, transparent);
+  }
+}
+
+.image-boundary {
+  position: relative;
+}
+
+.full-width-image {
+  height: min(max(750px, 50vw), 100vw);
+  width: 100%;
+  background-position: center bottom;
+  background-size: cover;
+
+  &.farandnear {
+    background-image: url('../img/farandnear.jpg');
+  }
+  &.ducks {
+    background-image: url('../img/KK-ducks.jpg');
+  }
+  &.puzzles {
+    background-image: url('../img/eng_pics/puzzle.jpg');
+  }
+}
+
+.image-caption {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 15px;
+  h5 {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    text-align: center;
+  }
+  p {
+    font-size: 18px;
+    color: #ffffff;
+  }
+}
+
 /* ==========================================================================
 Hero
 ========================================================================== */
 .hero {
-  min-height: 750px;
-  background: url('../img/KK-hero-large.jpg') center center;
+  // min-height: 750px;
+  height: min(max(750px, 50vw), 100vw);
+  background: url('../img/KK-hero-large.jpg') center bottom;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: relative;
+  &:after {
+    box-shadow: inset 0 (-40px) 40px (-16px);
+  }
 
   /*.rsvp-btn {
     position: absolute;
@@ -328,7 +423,7 @@ header {
       display: inline;
 
       a {
-        color: $txt-primary;
+        color: $black-color;
         padding-right: 25px;
 
         &:hover {
@@ -345,7 +440,7 @@ header {
       display: inline;
 
       a {
-        color: $txt-primary;
+        color: $black-color;
 
         &:hover {
           color: $accent-color;
