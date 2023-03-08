@@ -337,15 +337,17 @@ $(document).ready(function () {
             data[this.name] = value;
         });
 
-        // var data = $(this).serialize();
+        var inviteCode = $('#invite_code').val().toUpperCase();
+        data.invite_code = inviteCode; // overwrite uppercase
+
         dataString = $.param(data);
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a moment!</strong> We are sending your RSVP.'));
-
-        if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
-            && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
+        
+        if (MD5(inviteCode) !== '4bbf498551779026ea9a3b63e75cb345') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
+            $('#alert-wrapper').html(alert_markup('info', '<strong>Just a moment!</strong> We are sending your RSVP.'));
+            console.log(JSON.stringify(data));
             $.post('https://script.google.com/macros/s/AKfycbxYbvvF4sREDtALQ3HrgfYFqM6YptgM7Jr5mFkhqh23CuCf-v7Vu4_qUbpd8_xLoGde3Q/exec', dataString)
                 .done(function (data) {
                     console.log(data);
