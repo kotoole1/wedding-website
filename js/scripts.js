@@ -256,14 +256,9 @@ $(document).ready(function () {
             //     return;
             // }
             threshold = +threshold;
-            console.log(element);
-            console.log(threshold);
-            console.log(window.RSVPGuestCount);
             if (window.RSVPGuestCount >= threshold) {
-                console.log("showing");
                 element.show();
             } else {
-                console.log("hiding");
                 element.hide();
             }
         });
@@ -282,21 +277,18 @@ $(document).ready(function () {
         });
     }
     window.RSVPAnswer = 'yes';
-    console.log('ready at 1');
     window.RSVPGuestCount = 1;
     updateVisibility();
 
     $('#add-guest-button').on('click', function(e) {
         e.preventDefault();
         window.RSVPGuestCount = clamp(window.RSVPGuestCount + 1, 1, MAX_GUEST_COUNT);
-        console.log("increase guests " + window.RSVPGuestCount);
         updateVisibility();
     });
 
     $('#remove-guest-button').on('click', function(e) {
         e.preventDefault();
         window.RSVPGuestCount = clamp(window.RSVPGuestCount - 1, 1, MAX_GUEST_COUNT);
-        console.log("decrease guests " + window.RSVPGuestCount);
         updateVisibility();
     });
 
@@ -345,8 +337,8 @@ $(document).ready(function () {
         
         if (MD5(inviteCode) !== '4bbf498551779026ea9a3b63e75cb345') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
             $('#alert-wrapper').html(alert_markup('info', '<strong>Just a moment!</strong> We are sending your RSVP.'));
+        } else {
             console.log(JSON.stringify(data));
             $.post('https://script.google.com/macros/s/AKfycbxYbvvF4sREDtALQ3HrgfYFqM6YptgM7Jr5mFkhqh23CuCf-v7Vu4_qUbpd8_xLoGde3Q/exec', dataString)
                 .done(function (data) {
