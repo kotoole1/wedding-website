@@ -660,13 +660,11 @@
                             <p data-show-when-guest-count="min"><i>Guests are listed on invite envelope</p>
                         </div> -->
                     </div>
-                    <div class="row">
+                    <div class="row" data-show-when-rsvp="yes">
                         <div class="col-sm-12">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input name="invite_code" id="invite_code"
-                                                                aria-label="RSVP code (on your invite"
-                                                                placeholder="RSVP code (on your invite)"
-                                                                required>
+                                <i class="fa fa-music"></i><input name="song_request"
+                                                                    placeholder="Song requests">
                             </div>
                         </div>
                     </div>
@@ -674,7 +672,17 @@
                         <div class="col-sm-12">
                             <div class="form-input-group">
                                 <i class="fa fa-comment"></i><input name="additional_comments"
-                                                                    placeholder="Additional comments (allergies, shuttle, song requests...)">
+                                                                    placeholder="Additional comments (allergies, shuttle needs...)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-input-group">
+                                <i class="fa fa-key"></i><input name="invite_code" id="invite_code"
+                                                                aria-label="RSVP code (on your invite"
+                                                                placeholder="RSVP code (on your invite)"
+                                                                required>
                             </div>
                         </div>
                     </div>
