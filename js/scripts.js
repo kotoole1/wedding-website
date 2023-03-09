@@ -216,14 +216,14 @@ $(document).ready(function () {
             title: "Kelsey and Kevin's Wedding",
 
             // Event start date
-            start: new Date('June 10, 2023 3:00pm'),
+            start: new Date('June 10, 2023 15:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('June 10, 2023 10:00pm'),
+            end: new Date('June 10, 2023 22:00'),
 
             // Event Address
             address: 'Shuttle from Hilton Garden Inn (59 Andrews Pkwy, Devens, MA 01434), or from Bull Run restaurant (215 Great Rd, Shirley, MA 01464)',
