@@ -73,6 +73,8 @@ $(document).ready(function () {
         }, {
             offset: '75%'
         });
+    } else {
+        $('.wp1, .wp2, .wp3, .wp4, .wp5, .wp6, .wp7, .wp8, .wp9, .wp10, .wp11, .wp12, .wp13, .wp14').addClass('.unanimated');
     }
 
     /***************** Initiate Flexslider ******************/
