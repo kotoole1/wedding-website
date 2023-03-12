@@ -176,8 +176,12 @@ Waypoints
   -webkit-animation-delay: 0.3s;
   animation-delay: 0.3s
 }
-.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight, .bounceInDown, .unanimated {
+.bounceInLeft, .bounceInRight, .fadeInUp, .fadeInUpDelay, .fadeInDown, .fadeInUpD, .fadeInLeft, .fadeInRight, .bounceInDown {
   visibility: visible
+}
+
+.unanimated {
+  visibility: visible !important; // When animation library doesn't load, have all text visible
 }
 
 /* ==========================================================================
