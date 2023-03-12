@@ -305,22 +305,25 @@ $scrimStops: 0% 0%, 26.2% 19%, 45.9% 34%, 61.8% 47%, 72.2% 56.5%, 80.6% 65%, 87.
 .full-width-image {
   height: min(max(720px, 60vw), 80vw);
   width: 100%;
-  background-position: center bottom;
-  background-size: cover;
 
   &.jump {
-    background-image: url('../img/kk-jump.jpg');
+    background: #333844 url('../img/kk-jump.jpg');
+    background-size: cover, cover;
+    background-position: center bottom;
   }
   &.farandnear {
-    background-image: url('../img/farandnear.jpg');
+    background: #333844 url('../img/farandnear.jpg');
+    background-size: cover, cover;
+    background-position: center bottom;
   }
   &.ducks {
-    background-image: url('../img/KK-ducks.jpg');
+    background: #333844 url('../img/KK-ducks.jpg');
+    background-size: cover, cover;
+    background-position: center bottom;
   }
   &.puzzles {
-    background-image: url('../img/eng_pics/puzzle_ring.jpg');
-  }
-  &.fix-top {
+    background: #333844 url('../img/eng_pics/puzzle_ring.jpg');
+    background-size: cover, cover;
     background-position: center top;
   }
 }
@@ -398,7 +401,7 @@ Hero
 }
 .fixed {
   position: fixed;
-  background-color: rgba(#cccccc, .88);
+  background-color: rgba(#aaaaaa, .88);
   z-index: 999;
   width: 100%;
 }
